@@ -83,16 +83,17 @@ function Population(m, num) {
 
   // Compute the current "most fit" member of the population
   this.evaluate = function() {
-    var worldrecord = 0.0;
+    
     var index = 0;
     for (var i = 0; i < this.population.length; i++) {
       if (this.population[i].fitness > worldrecord) {
         index = i;
         worldrecord = this.population[i].fitness;
+        this.best = this.population[index].genes.route;          
       }
     }
 
-    this.best = this.population[index].genes.route;
+    
     this.record = worldrecord;
     this.distances.push(worldrecord);
     if (this.iterations > (1000 * this.best.length) -2) {

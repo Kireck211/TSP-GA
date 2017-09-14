@@ -36,7 +36,7 @@ var bestPhrase;
 var allPhrases;
 var stats;
 var canvas;
-
+var worldrecord = 0;
 
 function setup() {
   canvas = createCanvas(640, 360);
@@ -47,7 +47,7 @@ function setup() {
   frameRate(90);
   //popmax = 2;
   mutationRate = 0.01;
-  citiesmax = 5;
+  citiesmax = 20;
   popmax = parseInt(citiesmax / 2);
 
   //Creates array of cities
@@ -79,8 +79,8 @@ function draw() {
 
 function displayInfo() {
   // Display current status of population
-  var answer = population.getBest();
-  
+  var answer = population.getBest();  
+
   $('span.numberCities').html(answer.length);
   
   $('span.bestDistance').html(population.record);
